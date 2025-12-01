@@ -1,3 +1,5 @@
+import AddCategoryIcon from "../../assets/AddCategory.png";
+
 import Categorylist from "../category/Categorylist";
 import AddCategory from "../category/AddCategory";
 import { useState } from "react";
@@ -26,7 +28,7 @@ export default function Sidebar({activeCategoryId,setActiveCategoryId}) {
             className="float-right w-fit flex items-center gap-3 bg-indigo-700 border border-indigo-900
                       rounded-xl text-gray-100 transition duration-100"
           >
-            <img src="src\assets\AddCategory.png" />
+            <img src={AddCategoryIcon} />
           </button>
         )}
       </div>
