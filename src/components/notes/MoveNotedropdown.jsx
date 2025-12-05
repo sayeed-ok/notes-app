@@ -1,84 +1,11 @@
 import { useState, useRef, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { moveNote } from "../../features/notesslice"
-import Portal from "../utilities/portal"
+import Portal from "../utilities/Portal.jsx"
 
 
 
-// export default function MoveNoteDropdown({ noteId, categoryId, onClick }) {
-//   const categories = useSelector(state => state.category.categories)
-//   const notes = useSelector(state => state.note.notes)
 
-//   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
-//   const dispatch = useDispatch()
-//   const categoryRef = useRef(null)
-
-//   const { type } = categories.find(c => c.id === categoryId)
-
-
-
-//   function renderCategoryMenu() {
-//     if (!showCategoryMenu) return null;
-//     return (
-//       <div
-//         className="
-//         absolute right-0 top-full mt-2
-//         w-44 max-h-60 overflow-auto
-//       bg-neutral-900/90 backdrop-blur-lg
-//         border border-neutral-700/30 shadow-2xl
-//         rounded-xl p-2 animate-fadeIn no-scrollbar"
-//       >
-
-//         {categories.map(c => (
-//           <div
-//             key={c.id}
-//             onClick={() => {
-//               setShowCategoryMenu(false)
-//               dispatch(moveNote({ id: noteId, categoryId: c.id }))
-//             }}
-//             className="px-3 py-2 rounded-lg text-gray-200 text-sm hover:bg-neutral-800 cursor-pointer"
-//           >
-//             {c.type}
-//           </div>
-//         ))
-
-//         }
-
-//       </div>
-//     )
-//   }
-
-//   useEffect(() => {
-//     function handleClickOutside(e) {
-//       // If dropdown is closed → do nothing
-//       if (!showCategoryMenu) return
-
-//       // If clicked outside the wrapper → close it
-//       if (categoryRef.current && !categoryRef.current.contains(e.target)) {
-//         setShowCategoryMenu(false)
-//       }
-//     }
-
-//     document.addEventListener("mousedown", handleClickOutside)
-//     return () => document.removeEventListener("mousedown", handleClickOutside)
-//   }, [showCategoryMenu])
-
-//   return (
-//     <>
-//       <div ref={categoryRef} className="relative">
-//         <button
-//           onClick={() => setShowCategoryMenu(prev => !prev)}
-//           className="p-2 rounded-md hover:bg-indigo-800/60 transition delay-75"
-//           aria-expanded={showCategoryMenu}
-//           aria-haspopup="menu"
-//         >
-//           {`${type} ▾`}
-//         </button>
-//         {renderCategoryMenu()}
-//       </div>
-//     </>
-//   )
-// }
 
 
 
