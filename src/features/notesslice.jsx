@@ -6,28 +6,10 @@ const noteSlice = createSlice({
   initialState: {
     notes: [
       {
-        id: 1,
-        title: "Pride and Prejudice",
-        content: "Novel by Jane Austen",
+        id: "1",
+        title: "Title",
+        content: "Content",
         categoryId: "1",
-        pinned: false,
-        createdAt: Date.now(),
-        lastEdited: Date.now()
-      },
-      {
-        id: 2,
-        title: "The Tunnel to Summer, the Exit of Goodbyes",
-        content: "A Japanese light novel written by Mei Hachimoku and illustrated by Kukka A manga adaptation, illustrated by Koudon.",
-        categoryId: "1",
-        pinned: true,
-        createdAt: Date.now(),
-        lastEdited: Date.now()
-      },
-      {
-        id: 3,
-        title: "abc",
-        content: "cde",
-        categoryId: "2",
         pinned: true,
         createdAt: Date.now(),
         lastEdited: Date.now()
@@ -36,7 +18,7 @@ const noteSlice = createSlice({
   },
   reducers: {
     addNote: (state, action) => {
-      console.log('Action-addNote', action.payload)
+      // console.log('Action-addNote', action.payload)
       const { title, content, categoryId } = action.payload
       state.notes.push({
         id: nanoid(),

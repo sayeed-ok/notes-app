@@ -36,12 +36,8 @@ export default function SearchNotes({ setSearchQuery }) {
       value={query}
       onChange={e => setQuery(e.target.value)}
       ref={inputRef}
-      className="
-        w-full px-4 py-2 rounded-lg 
-        bg-neutral-900 border border-neutral-700 
-        text-gray-200 placeholder-gray-500
-        focus:border-indigo-500 outline-none
-      "
+      className="flex-1 text-gray-200 text-sm font-medium placeholder-indigo-500 outline-none 
+        border-r-2 border-neutral-500"                 
     />
   );
 }

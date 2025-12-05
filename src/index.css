@@ -11,7 +11,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: rgba(15, 15, 15, 0.45);
+  
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,6 +29,12 @@ body,
   margin: 0;
   padding: 0;
 }
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+
 
 a {
   font-weight: 500;
@@ -82,6 +89,18 @@ ul {
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out;
 }
+
+/* hide native scrollbar but keep scrolling functional */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+
+  /* WebKit browsers (Chrome, Safari, new Edge) */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+/*  hide scrollbar*/
 
 
 

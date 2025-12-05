@@ -16,7 +16,14 @@ import AddNoteIcon from "../../assets/AddNote.png"
 export default function Mainarea({ activeCategoryId, setActiveCategoryId }) {
   const [isAdding, setIsAdding] = useState(false)
   return (
-    <div className="relative flex-1 p-6 overflow-y-auto">
+    <div className="
+  relative 
+  h-full flex flex-col min-h-0 flex-1
+  p-2
+  rounded-2xl rounded-bl-none rounded-tl-none
+  bg-white/7 backdrop-blur-xl border border-white/10
+  shadow-[0_0_50px_rgba(0,0,0,0.25)] border-l-0
+">
 
 
       <h1 className="text-3xl font-semibold mb-4">Notes</h1>
@@ -42,7 +49,7 @@ export default function Mainarea({ activeCategoryId, setActiveCategoryId }) {
         (
           <button
             onClick={() => setIsAdding(true)}
-            className="group fixed bottom-15 right-6 z-50 w-14 h-14 rounded-full bg-indigo-600 text-white text-3xl flex  items-center justify-center shadow-lg shadow-indigo-600/40  animate-pulse-slow hover:animate-none hover:scale-110 transition-all duration-300 ease-out"
+            className="group fixed bottom-10 right-10 z-50 w-15 h-15 rounded-full bg-indigo-600 text-white text-3xl flex  items-center justify-center shadow-lg shadow-indigo-600/40  animate-pulse-slow hover:animate-none hover:scale-110 transition-all duration-300 ease-out"
           >
             <img src={AddNoteIcon}/>
           </button>

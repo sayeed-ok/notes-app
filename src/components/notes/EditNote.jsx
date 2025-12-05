@@ -33,7 +33,8 @@ export default function EditNote({ noteId, onDone }) {
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
 
       {/* MODAL */}
-      <div className="relative bg-neutral-900 p-6 rounded-xl w-[500px] shadow-2xl border     border-neutral-700">
+      <div className="relative bg-neutral-900 p-6 rounded-xl 
+     w-full max-w-xl shadow-2xl border border-neutral-700 ">
 
         {/* CLOSE BUTTON */}
         <button
@@ -60,7 +61,7 @@ export default function EditNote({ noteId, onDone }) {
             placeholder="Write your note..."
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="w-full bg-neutral-800 p-3 rounded-lg border border-neutral-700 h-40 resize-none focus:border-indigo-500 outline-none text-white"
+            className="w-full space-y-4 min-w-0 bg-neutral-800 p-3 rounded-lg border border-neutral-700 h-40 resize-none focus:border-indigo-500 outline-none text-white"
           />
 
 

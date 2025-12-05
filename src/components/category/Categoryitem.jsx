@@ -50,8 +50,8 @@ export default function Categoryitem({ category, isEditing, onEdit, onCancelEdit
           ${isActive ? "bg-indigo-900 text-white" : "hover:bg-gray-700"}
         `}
       >
-        <span className="grow min-w-0 px-2 py-1 rounded bg-gray-800 text-white"
-        >{category.type}</span>
+        <span className="grow min-w-0 px-3 py-2 rounded-lg bg-neutral-800/40 backdrop-blur-sm text-gray-200 text-sm font-medium">
+          {category.type}</span>
         <div className="flex gap-2 shrink-0">
           <button className={btnClass} onClick={(e) => { e.stopPropagation(); onEdit() }}>✏️</button>
           <button className={btnClass} onClick={(e) => { e.stopPropagation(); dispatch(deleteCategory(category.id)) }}>🗑️</button>

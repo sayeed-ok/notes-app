@@ -15,31 +15,26 @@ export default function Applayout() {
 
 
   return (
-    <>
+    <div className="h-screen w-full flex overflow-hidden min-h-0">
       <header className="">
 
-        <select
-          className=" p-2 rounded"
-          >
-          <option value="system">System</option>
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-        </select>
+        
 
       </header>
 
       <div className="h-screen w-full flex overflow-hidden">
 
-        <aside className="h-full w-80 overflow-y-auto ">
+        <aside className="h-full w-80 shrink-0 p-2 pr-0">
+          
           <Sidebar activeCategoryId={activeCategoryId} setActiveCategoryId={setActiveCategoryId} />
         </aside>
 
-        <main className="h-full flex-1 overflow-y-auto ">
+        <main className="h-full flex-1 p-2 pl-0">
           <Mainarea activeCategoryId={activeCategoryId} setActiveCategoryId={setActiveCategoryId} />
         </main>
 
       </div>
-    </>
+    </div>
   )
 }
 

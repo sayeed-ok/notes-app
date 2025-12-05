@@ -4,8 +4,10 @@ const categorySlice = createSlice({
   name: 'category',
   initialState: {
     categories: [
-      {id: '1',type:'Movies'},
-      {id: '2',type:'Todos'},
+      {id: '1',type:'✔️Todos'},
+      {id: '2',type:'🎬Movies'},
+      {id: '3',type:'💼Work'},
+      {id: '4',type:'🧑Personal'},
     ]
   },
   reducers: {

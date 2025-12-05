@@ -1,21 +1,267 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { moveNote } from "../../features/notesslice"
+import Portal from "../utilities/portal"
 
 
 
-export default function MoveNoteDropdown({ noteId, categoryId, onClick }) {
-  const category = useSelector(state => state.category.categories)
-  const notes = useSelector(state => state.note.notes)
-  const dispatch = useDispatch()
+// export default function MoveNoteDropdown({ noteId, categoryId, onClick }) {
+//   const categories = useSelector(state => state.category.categories)
+//   const notes = useSelector(state => state.note.notes)
+
+//   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
+//   const dispatch = useDispatch()
+//   const categoryRef = useRef(null)
+
+//   const { type } = categories.find(c => c.id === categoryId)
 
 
+
+//   function renderCategoryMenu() {
+//     if (!showCategoryMenu) return null;
+//     return (
+//       <div
+//         className="
+//         absolute right-0 top-full mt-2
+//         w-44 max-h-60 overflow-auto
+//       bg-neutral-900/90 backdrop-blur-lg
+//         border border-neutral-700/30 shadow-2xl
+//         rounded-xl p-2 animate-fadeIn no-scrollbar"
+//       >
+
+//         {categories.map(c => (
+//           <div
+//             key={c.id}
+//             onClick={() => {
+//               setShowCategoryMenu(false)
+//               dispatch(moveNote({ id: noteId, categoryId: c.id }))
+//             }}
+//             className="px-3 py-2 rounded-lg text-gray-200 text-sm hover:bg-neutral-800 cursor-pointer"
+//           >
+//             {c.type}
+//           </div>
+//         ))
+
+//         }
+
+//       </div>
+//     )
+//   }
+
+//   useEffect(() => {
+//     function handleClickOutside(e) {
+//       // If dropdown is closed → do nothing
+//       if (!showCategoryMenu) return
+
+//       // If clicked outside the wrapper → close it
+//       if (categoryRef.current && !categoryRef.current.contains(e.target)) {
+//         setShowCategoryMenu(false)
+//       }
+//     }
+
+//     document.addEventListener("mousedown", handleClickOutside)
+//     return () => document.removeEventListener("mousedown", handleClickOutside)
+//   }, [showCategoryMenu])
+
+//   return (
+//     <>
+//       <div ref={categoryRef} className="relative">
+//         <button
+//           onClick={() => setShowCategoryMenu(prev => !prev)}
+//           className="p-2 rounded-md hover:bg-indigo-800/60 transition delay-75"
+//           aria-expanded={showCategoryMenu}
+//           aria-haspopup="menu"
+//         >
+//           {`${type} ▾`}
+//         </button>
+//         {renderCategoryMenu()}
+//       </div>
+//     </>
+//   )
+// }
+
+
+
+
+
+
+
+
+export default function MoveNoteDropdown({ noteId, categoryId }) {
+  const categories = useSelector((s) => s.category.categories);
+  const dispatch = useDispatch();
+
+  const [open, setOpen] = useState(false);
+  const [pos, setPos] = useState({ top: 0, left: 0, width: 0 });
+
+  const buttonRef = useRef(null);
+  const menuRef = useRef(null);
+
+  const current = categories.find((c) => c.id === categoryId);
+
+  // Position menu when opened
+  useEffect(() => {
+    if (open && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setPos({
+        top: rect.bottom + 6,
+        left: rect.left,
+        width: rect.width + 40,
+      });
+    }
+  }, [open]);
+
+  // CLICK OUTSIDE — includes menuRef + buttonRef
+  useEffect(() => {
+    function handleClick(e) {
+      if (!open) return;
+
+      if (
+        !buttonRef.current.contains(e.target) &&
+        !menuRef.current.contains(e.target)
+      ) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
+
+  // ----------------------------------
+  //            FUNCTIONALIZED MENU
+  // ----------------------------------
+  function renderCategoryMenu() {
+    if (!open) return null;
+
+    return (
+      <Portal>
+        <div
+          ref={menuRef}
+          style={{
+            position: "fixed",
+            top: pos.top,
+            left: pos.left,
+            width: pos.width,
+            zIndex: 999999,
+          }}
+          className="
+            bg-neutral-900/70 border border-neutral-700/30 shadow-2xl rounded-xl p-2 animate-fadeIn no-scrollbar"                                  
+        >
+          {categories.map((c) => (
+            <div
+              key={c.id}
+              onClick={() => {
+                dispatch(moveNote({ id: noteId, categoryId: c.id }));
+                setOpen(false);
+              }}
+              className={`
+                px-3 py-2 text-sm rounded-xl cursor-pointer text-gray-200
+                hover:bg-neutral-800 my-1 
+                ${c.id === current.id ? "bg-neutral-800 text-indigo-400" : ""}
+              `}
+            >
+              {c.type}
+            </div>
+          ))}
+        </div>
+      </Portal>
+    );
+  }
+
+  // ----------------------------------
 
   return (
     <>
+      {/* BUTTON */}
+      <button
+        ref={buttonRef}
+        onClick={() => setOpen((p) => !p)}
+        className="
+          p-2 rounded-xl hover:bg-indigo-800/60 transition delay-75
+           
+          text-gray-200 text-sm
+        "
+      >
+        {current.type} ▾
+      </button>
+
+      {/* FUNCTIONALIZED MENU */}
+      {renderCategoryMenu()}
+    </>
+  );
+}
 
 
-      <select
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ <select
         value={categoryId}
         onClick={(e) => e.stopPropagation()}
         className="w-full bg-neutral-900 p-2 rounded-lg border border-neutral-700 focus:border-indigo-500 outline-none text-white"
@@ -33,7 +279,4 @@ export default function MoveNoteDropdown({ noteId, categoryId, onClick }) {
           </option>
         ))}
       </select>
-
-    </>
-  )
-}
+*/
