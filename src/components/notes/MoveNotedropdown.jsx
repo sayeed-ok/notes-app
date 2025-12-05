@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { moveNote } from "../../features/notesslice"
-import Portal from "../utilities/Portal.jsx"
+import Portal from "../utilities/Portal";
+
 
 
 
