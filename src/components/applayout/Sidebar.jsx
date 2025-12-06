@@ -15,7 +15,7 @@ export default function Sidebar({ activeCategoryId, setActiveCategoryId }) {
       "           
     >
 
-      <h1 className="text-3xl font-semibold mb-3">Boring</h1>
+      <h1 className="text-3xl font-semibold mb-3">Just Do it</h1>
 
       {/* ▼ Smooth collapsible add-category container */}
       <div className={`transition-all duration-300 overflow-hidden pr-2`}>

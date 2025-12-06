@@ -15,17 +15,11 @@ export default function Applayout() {
 
 
   return (
-    <div className="h-screen w-full flex overflow-hidden min-h-0">
-      <header className="">
-
+    <div className="h-screen w-full flex  overflow-hidden min-h-0">
         
 
-      </header>
-
-      <div className="h-screen w-full flex overflow-hidden">
-
         <aside className="h-full w-80 shrink-0 p-2 pr-0">
-          
+
           <Sidebar activeCategoryId={activeCategoryId} setActiveCategoryId={setActiveCategoryId} />
         </aside>
 
@@ -33,7 +27,7 @@ export default function Applayout() {
           <Mainarea activeCategoryId={activeCategoryId} setActiveCategoryId={setActiveCategoryId} />
         </main>
 
-      </div>
+      
     </div>
   )
 }

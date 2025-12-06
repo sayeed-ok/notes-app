@@ -26,7 +26,7 @@ export default function Mainarea({ activeCategoryId, setActiveCategoryId }) {
 ">
 
 
-      <h1 className="text-3xl font-semibold mb-4">Notes</h1>
+      
 
      
 
