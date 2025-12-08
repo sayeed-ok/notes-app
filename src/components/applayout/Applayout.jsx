@@ -6,30 +6,33 @@ import { useSelector, useDispatch } from "react-redux";
 import { setTheme, toggleTheme } from "../../features/themeslice";
 
 export default function Applayout() {
-  const [activeCategoryId, setActiveCategoryId] = useState(null);
-  const notes = useSelector(state => state.note.notes)
-  const dispatch = useDispatch()
+   const [activeCategoryId, setActiveCategoryId] = useState(null);
+   const notes = useSelector(state => state.note.notes)
+   const dispatch = useDispatch()
 
 
 
 
 
-  return (
-    <div className="h-screen w-full flex  overflow-hidden min-h-0">
-        
+   return (
+      <div className="h-screen w-full flex overflow-hidden min-h-0">
 
-        <aside className="h-full w-80 shrink-0 p-2 pr-0">
+         {/* Gradient */}
+         <div className="background-gradient"></div>
 
-          <Sidebar activeCategoryId={activeCategoryId} setActiveCategoryId={setActiveCategoryId} />
-        </aside>
 
-        <main className="h-full flex-1 p-2 pl-0">
-          <Mainarea activeCategoryId={activeCategoryId} setActiveCategoryId={setActiveCategoryId} />
-        </main>
+         <aside className="h-full w-80 shrink-0 p-2 pr-0">
 
-      
-    </div>
-  )
+            <Sidebar activeCategoryId={activeCategoryId} setActiveCategoryId={setActiveCategoryId} />
+         </aside>
+
+         <main className="h-full flex-1 p-2 pl-0">
+            <Mainarea activeCategoryId={activeCategoryId} setActiveCategoryId={setActiveCategoryId} />
+         </main>
+
+
+      </div>
+   )
 }
 
 

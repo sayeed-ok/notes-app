@@ -1,8 +1,14 @@
-# The Bare Minimum Workspace
+# 🧊 The Bare Minimum Workspace
 
 Bare Minimum Workspace is a minimal, glass-UI notes and categories manager built for speed, clarity, and absolutely no unnecessary drama.  
 Despite the name, it performs at **peak efficiency** — fast search, instant filtering, pinned notes, modal editing, and smooth UI transitions.
 ---
+### 🔗 Live Demo <br/>
+ 👉 https://bare-minimum-workspace.vercel.app/
+
+### 📸 Preview
+![App Preview](src/assets/app-preview.png)
+
 
 ## 🚀 Features  
 - 🔍 Real-time search + category filtering  
@@ -22,7 +28,7 @@ Despite the name, it performs at **peak efficiency** — fast search, instant fi
 - JS utilities (no heavy date libs)
 ---
 
-## Features
+## 📚 Core Capabilities
 - Create / edit / soft-delete / restore notes
 - Categories management (create / rename / delete)
 - Tags (labels) support (optional)
@@ -31,7 +37,7 @@ Despite the name, it performs at **peak efficiency** — fast search, instant fi
 - Theme switching (system / light / dark) with CSS variables
 - `formatTimeAgo` utility for human-friendly timestamps
 
----
+
 
 ## Dev setup
 

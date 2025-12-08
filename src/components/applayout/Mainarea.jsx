@@ -23,6 +23,7 @@ export default function Mainarea({ activeCategoryId, setActiveCategoryId }) {
   rounded-2xl rounded-bl-none rounded-tl-none
   bg-white/7 backdrop-blur-xl border border-white/10
   shadow-[0_0_50px_rgba(0,0,0,0.25)] border-l-0
+  bg-undertone-mono w-full 
 ">
 
 
